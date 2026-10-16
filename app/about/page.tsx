@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="order-2 md:order-1">
           <p className="label">About</p>
           <h1 className="mt-4 text-[30px] font-semibold leading-[1.15] tracking-tight sm:text-[36px] lg:text-[40px]">
-            Hi, I&apos;m {site.name}.
+          A bit about me.
           </h1>
           <div className="mt-6 max-w-[54ch] space-y-4 text-[15px] leading-7 text-muted sm:text-base">
             {intro.map((paragraph) => (

@@ -20,11 +20,10 @@ export default function HomePage() {
           id="intro-heading"
           className="mt-5 max-w-[16ch] text-[32px] font-semibold leading-[1.12] tracking-tight sm:text-[40px] lg:text-[46px]"
         >
-          Building thoughtful digital experiences.
+         Hi, I’m Jeje.
         </h1>
         <p className="mt-6 max-w-[52ch] text-[15px] leading-7 text-muted sm:text-base">
-         Full-stack developer based in Batam, building modern web applications with React, Next.js, and Node.js. 
-         Currently open to freelance projects and new opportunities.
+         I build modern web applications with React, Next.js, and Node.js, based in Batam. Currently open to freelance projects and new opportunities.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
