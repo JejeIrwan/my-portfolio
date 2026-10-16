@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* Theme variants driven by <html data-theme="…"> (not the OS setting). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* ---------- Semantic theme tokens ---------- */
+
+/* Dark — default */
+:root,
+[data-theme="dark"] {
+  --background: #171916;
+  --sidebar: #22251f;
+  --accent: #727a60;
+  --foreground: #f0eee6;
+  --muted: #a6aa9a;
+  --border: #35392f;
+  --card: #22251f;                      /* cards & image placeholders (same as sidebar) */
+  --hover: rgb(114 122 96 / 0.12);      /* hover background for menu items & icon buttons */
+  --selected: rgb(114 122 96 / 0.22);   /* active menu item */
+  --scrim: rgb(12 13 11 / 0.6);
+
+  --sidebar-width: 248px;
+}
+
+/* Light — white body, light gray sidebar & cards */
+[data-theme="light"] {
+  --background: #ffffff;
+  --sidebar: #f1f1ef;
+  --accent: #697457;
+  --foreground: #252820;
+  --muted: #686b60;
+  --border: #e3e3df;
+  --card: #f1f1ef;
+  --hover: rgb(37 40 32 / 0.05);
+  --selected: rgb(37 40 32 / 0.09);
+  --scrim: rgb(37 40 32 / 0.25);
+}
+
+/* Expose tokens to Tailwind: bg-background, text-muted, border-border, bg-accent/15 … */
+@theme inline {
+  --color-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-hover: var(--hover);
+  --color-selected: var(--selected);
+  --color-scrim: var(--scrim);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ---------- Base ---------- */
+
+@layer base {
+  html {
+    background-color: var(--background);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Smooth theme switch: only color properties transition. */
+  *,
+  *::before,
+  *::after {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke,
+      opacity;
+    transition-duration: 180ms;
+    transition-timing-function: ease;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    color: var(--foreground);
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* ---------- Small shared patterns ---------- */
+
+@layer components {
+  /* Section / metadata label (11–12px). */
+  .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 60;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.375rem;
+    background-color: var(--foreground);
+    color: var(--background);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus-visible {
+    transform: none;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
