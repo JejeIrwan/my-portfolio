@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { ServiceCard } from "@/components/service-card";
 import { getInitials, site } from "@/lib/site";
+import { CertificateSection } from "@/components/certificate-section";
 
 /**
  * Short introduction under "Hi, I'm …". One string per paragraph — edit freely.
@@ -120,6 +121,8 @@ export default function AboutPage() {
           </ol>
         </Section>
       )}
+     <CertificateSection />
+    
     </>
   );
 }
