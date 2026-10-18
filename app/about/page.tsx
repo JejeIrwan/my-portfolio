@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { ServiceCard } from "@/components/service-card";
 import { getInitials, site } from "@/lib/site";
 import { CertificateSection } from "@/components/certificate-section";
+import { CvButton } from "@/components/cv-button";
 
 /**
  * Short introduction under "Hi, I'm …". One string per paragraph — edit freely.
@@ -49,6 +50,7 @@ export default function AboutPage() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+          <CvButton className="mt-8" />
         </div>
 
         <div className="relative order-1 aspect-[4/5] w-40 overflow-hidden rounded-2xl border border-border bg-card sm:w-48 md:order-2 md:w-full">
