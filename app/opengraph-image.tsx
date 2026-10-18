@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
 /** Short line under your name. Edit freely. */
 const TAGLINE = "Building modern web applications · Based in Batam";
 
-export const alt = `${site.name} — ${site.role}`;
+export const alt = `${site.name} ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
