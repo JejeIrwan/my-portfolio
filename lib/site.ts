@@ -56,7 +56,7 @@ export const site: SiteConfig = {
   role: "Full-Stack Developer",
   avatar: "/profile1.jpg",
   email: "jeffryirwan03@gmail.com",
-  url: "https://example.com",
+  url: "https://www.jejeirwan.my.id",
   description:
     "Full-Stack Developer building useful digital products with a focus on clarity, usability, and thoughtful details.",
 
