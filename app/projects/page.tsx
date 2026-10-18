@@ -16,7 +16,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHeader eyebrow="Projects" title="Things I've built.">
-        <p>A mix of products, tools, and experiments. Open a project to read the full story.</p>
+        <p>Real projects I’ve worked on, from idea to launch. Click a project to see the story behind it.</p>
       </PageHeader>
 
       <section aria-label="Project list" className="mt-14">
