@@ -9,16 +9,16 @@
 /* Dark — default */
 :root,
 [data-theme="dark"] {
-  --background: #171916;
-  --sidebar: #22251f;
-  --accent: #727a60;
-  --foreground: #f0eee6;
-  --muted: #a6aa9a;
-  --border: #35392f;
-  --card: #22251f;                      /* cards & image placeholders (same as sidebar) */
-  --hover: rgb(114 122 96 / 0.12);      /* hover background for menu items & icon buttons */
-  --selected: rgb(114 122 96 / 0.22);   /* active menu item */
-  --scrim: rgb(12 13 11 / 0.6);
+  --background: #0a0a0a;
+  --sidebar: #121212;
+  --accent: #fafafa;
+  --foreground: #fafafa;
+  --muted: #a1a1a1;
+  --border: #242424;
+  --card: #121212;
+  --hover: rgb(255 255 255 / 0.06);
+  --selected: rgb(255 255 255 / 0.1);
+  --scrim: rgb(0 0 0 / 0.7);
 
   --sidebar-width: 248px;
 }

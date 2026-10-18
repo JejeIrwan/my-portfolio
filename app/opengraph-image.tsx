@@ -17,12 +17,12 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const colors = {
-  background: "#171916",
-  card: "#22251F",
-  border: "#35392F",
-  accent: "#727A60",
-  foreground: "#F0EEE6",
-  muted: "#A6AA9A",
+  background: "#0A0A0A",
+  card: "#121212",
+  border: "#242424",
+  accent: "#A1A1A1",
+  foreground: "#FAFAFA",
+  muted: "#A1A1A1",
 };
 
 /** Loads the profile photo from /public as a data URL (PNG/JPG only). */
