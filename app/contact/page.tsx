@@ -1,34 +1,66 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { CopyEmail } from "@/components/copy-email";
 import { PageHeader } from "@/components/page-header";
 import { getSocial, site } from "@/lib/site";
 
+/* ------------------------------------------------------------------
+ * Edit these to change the page.
+ * ------------------------------------------------------------------ */
+
+const HEADING = "Let's work together.";
+
+const INTRO =
+  "Got a project, a job opening, or just want to say hi? My inbox is always open, and I usually reply within a day or two.";
+
+/**
+ * WhatsApp number: country code 62 + number without the leading 0, digits only.
+ * Example: 0812-3456-7890 → "6281234567890". Leave empty ("") to hide WhatsApp.
+ */
+const WHATSAPP_NUMBER = "6281365215007";
+
+/** Message pre-filled in WhatsApp when someone taps the link. Leave empty ("") for none. */
+const WHATSAPP_MESSAGE = "Hi Jeje, I found your portfolio and would like to talk.";
+
+/* ------------------------------------------------------------------ */
+
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with ${site.name} by email, LinkedIn, or GitHub.`,
+  description: `Get in touch with ${site.name} by email, WhatsApp, LinkedIn, or GitHub.`,
 };
 
+type Channel = { key: string; label: string; href: string; detail: string };
+
+function whatsappLink(): string {
+  const text = WHATSAPP_MESSAGE ? `?text=${encodeURIComponent(WHATSAPP_MESSAGE)}` : "";
+  return `https://wa.me/${WHATSAPP_NUMBER}${text}`;
+}
+
 export default function ContactPage() {
-  const channels = [getSocial("linkedin"), getSocial("github")].filter(
-    (social) => social !== undefined,
-  );
+  const linkedin = getSocial("linkedin");
+  const github = getSocial("github");
+  const shortUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+  const channels: Channel[] = [];
+  if (WHATSAPP_NUMBER) {
+    channels.push({ key: "whatsapp", label: "WhatsApp", href: whatsappLink(), detail: "Chat on WhatsApp" });
+  }
+  if (linkedin) {
+    channels.push({ key: "linkedin", label: linkedin.label, href: linkedin.href, detail: shortUrl(linkedin.href) });
+  }
+  if (github) {
+    channels.push({ key: "github", label: github.label, href: github.href, detail: shortUrl(github.href) });
+  }
 
   return (
     <>
-      <PageHeader eyebrow="Contact" title="Say hello.">
-        <p>
-          Have a project in mind, a role to discuss, or a question about something I&apos;ve built?
-          Email is the best way to reach me — I read every message and reply as soon as I can.
-        </p>
+      <PageHeader eyebrow="Contact" title={HEADING}>
+        <p>{INTRO}</p>
       </PageHeader>
 
-      <a
-        href={`mailto:${site.email}`}
-        className="group mt-12 inline-flex items-center gap-3 text-xl font-medium tracking-tight underline decoration-border decoration-1 underline-offset-8 hover:decoration-accent sm:text-2xl"
-      >
-        <Mail size={22} strokeWidth={1.5} aria-hidden="true" className="text-muted" />
-        {site.email}
-      </a>
+      <div className="mt-12">
+        <CopyEmail email={site.email} />
+      </div>
 
       {channels.length > 0 && (
         <section aria-labelledby="elsewhere-heading" className="mt-20">
@@ -37,7 +69,7 @@ export default function ContactPage() {
           </h2>
           <ul className="border-b border-border">
             {channels.map((channel) => (
-              <li key={channel.icon} className="border-t border-border">
+              <li key={channel.key} className="border-t border-border">
                 <a
                   href={channel.href}
                   target="_blank"
@@ -46,7 +78,7 @@ export default function ContactPage() {
                 >
                   <span className="font-medium">{channel.label}</span>
                   <span className="flex min-w-0 items-center gap-2 text-sm text-muted group-hover:text-foreground">
-                    <span className="truncate">{channel.href.replace(/^https?:\/\/(www\.)?/, "")}</span>
+                    <span className="truncate">{channel.detail}</span>
                     <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" className="shrink-0" />
                   </span>
                   <span className="sr-only"> (opens in a new tab)</span>
