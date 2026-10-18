@@ -58,7 +58,7 @@ export const site: SiteConfig = {
   email: "jeffryirwan03@gmail.com",
   url: "https://www.jejeirwan.my.id",
   description:
-    "Full-Stack Developer building useful digital products with a focus on clarity, usability, and thoughtful details.",
+    "Full-stack developer based in Batam, building modern web applications with React, Next.js, and Node.js.",
 
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/jejeirwan/", icon: "linkedin" },
