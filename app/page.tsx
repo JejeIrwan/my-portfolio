@@ -7,7 +7,7 @@ import { featuredProjects } from "@/lib/projects";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: `${site.name} — ${site.role}` },
+  title: { absolute: `Home | ${site.name}` },
   description: site.description,
 };
 

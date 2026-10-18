@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
 /** Short line under your name. Edit freely. */
 const TAGLINE = "Building modern web applications · Based in Batam";
 
-export const alt = `${site.name} ${site.role}`;
+export const alt = `${site.name} | ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -82,13 +82,10 @@ export default async function OpengraphImage() {
           >
             {site.name}
           </div>
-          <div style={{ display: "flex", marginTop: 28, fontSize: 30, color: colors.muted }}>
+           <div style={{ display: "flex", marginTop: 28, fontSize: 30, color: colors.muted }}>
             {TAGLINE}
           </div>
           <div style={{ display: "flex", alignItems: "center", marginTop: 56, fontSize: 26 }}>
-            <div
-              style={{ display: "flex", width: 40, height: 3, marginRight: 18, backgroundColor: colors.accent }}
-            />
             {domain}
           </div>
         </div>
