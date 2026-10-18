@@ -8,6 +8,7 @@ import { Sidebar } from "@/components/sidebar/sidebar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemeScript } from "@/components/theme/theme-script";
 import { site } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <SiteFooter />
           </div>
         </ThemeProvider>
+         <Analytics />
       </body>
     </html>
   );
