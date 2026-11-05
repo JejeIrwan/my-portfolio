@@ -23,7 +23,7 @@ export type Project = {
   year?: number;
   /** Cover image (cards + detail page). */
   image?: string;
-  /** Extra screenshots shown at the bottom of the detail page. */
+  /** Extra screenshots: shown as thumbnails under the cover, and in the full-screen slider. */
   gallery?: string[];
   liveUrl?: string;
   sourceUrl?: string;
@@ -49,6 +49,8 @@ export const projects: Project[] = [
     stack: ["PHP", "Laravel", "Tailwind CSS"],
     year: 2026,
     image: "/projects/website-sekolah.png",
+    // Foto tambahan: taruh file di /public/projects/ lalu tambahkan path-nya di sini.
+    gallery: ["/projects/sekolah-spmb.png", "/projects/sekolah-berita.png"],
     liveUrl: "https://teramiaschool.sch.id/",
     sourceUrl: "https://github.com/JejeIrwan",
     featured: true,

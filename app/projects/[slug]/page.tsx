@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { ProjectCover } from "@/components/projects/project-cover";
+import { ProjectGallery } from "@/components/projects/project-gallery";
 import { ExternalLink } from "@/components/text-link";
 import { getNextProject, getProject, projects } from "@/lib/projects";
 
@@ -43,6 +43,10 @@ export default async function ProjectPage({ params }: Props) {
 
   const next = getNextProject(project.slug);
   const meta = [project.year, project.role].filter(Boolean).join(" · ");
+  // Cover first, then the extra screenshots — all of them open in the slider.
+  const photos = [project.image, ...(project.gallery ?? [])].filter(
+    (src): src is string => Boolean(src),
+  );
 
   return (
     <article>
@@ -71,14 +75,15 @@ export default async function ProjectPage({ params }: Props) {
         )}
       </header>
 
-      <ProjectCover
-        src={project.image}
-        title={project.title}
-        sizes="(min-width: 1024px) 760px, 100vw"
-        variant="full"
-        priority
-        className="mt-12"
-      />
+      {photos.length > 0 ? (
+        <ProjectGallery images={photos} title={project.title} className="mt-12" />
+      ) : (
+        <ProjectCover
+          title={project.title}
+          sizes="(min-width: 1024px) 760px, 100vw"
+          className="mt-12"
+        />
+      )}
 
       <div className="mt-14 border-b border-border">
         <Section title="Overview">
@@ -106,25 +111,6 @@ export default async function ProjectPage({ params }: Props) {
           <p>{project.stack.join(" · ")}</p>
         </Section>
       </div>
-
-      {project.gallery && project.gallery.length > 0 && (
-        <section aria-label="Screenshots" className="mt-14 grid gap-6">
-          {project.gallery.map((src, index) => (
-            <div
-              key={src}
-              className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border bg-card"
-            >
-              <Image
-                src={src}
-                alt={`${project.title} screenshot ${index + 1}`}
-                fill
-                sizes="(min-width: 1024px) 760px, 100vw"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </section>
-      )}
 
       {next && next.slug !== project.slug && (
         <nav aria-label="More projects" className="mt-16">
