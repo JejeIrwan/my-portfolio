@@ -50,7 +50,7 @@ export const projects: Project[] = [
     year: 2026,
     image: "/projects/website-sekolah.png",
     // Foto tambahan: taruh file di /public/projects/ lalu tambahkan path-nya di sini.
-    // gallery: ["/projects/sekolah-2.png", "/projects/sekolah-3.png"],
+    gallery: ["/projects/sekolah-spmb.png", "/projects/sekolah-berita.png"],
     liveUrl: "https://teramiaschool.sch.id/",
     sourceUrl: "https://github.com/JejeIrwan",
     featured: true,
