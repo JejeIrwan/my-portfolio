@@ -49,8 +49,8 @@ export const projects: Project[] = [
     stack: ["PHP", "Laravel", "Tailwind CSS"],
     year: 2026,
     image: "/projects/website-sekolah.png",
-    liveUrl: "https://link-demo-kamu.com",
-    sourceUrl: "https://github.com/username/nama-proyek",
+    liveUrl: "https://teramiaschool.sch.id/",
+    sourceUrl: "https://github.com/JejeIrwan",
     featured: true,
   },
 ];
