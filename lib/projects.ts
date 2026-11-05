@@ -55,6 +55,38 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/JejeIrwan",
     featured: true,
   },
+  {
+    slug: "giliran",
+    title: "Giliran - Barbershop Queue & Online Booking",
+    summary: "A web-based booking and queue system that lets barbershop customers reserve a service, a barber, and a time slot online, with a dashboard for owners to manage the day.",
+    overview: [
+      "Busy barbershops share a familiar problem: customers want a haircut but have no idea when a barber will be free. Many end up visiting the shop just to ask about the queue, only to wait for a long time or come back later. Giliran solves this by putting the shop's schedule online, so customers can see what is available and book a slot from their phone without leaving home.",
+      "The booking flow is short and clear. Customers pick a service, choose a barber (or let the system assign whoever is free first), select a time, and enter their name and WhatsApp number. They receive a booking code to show at the shop, can save the details to WhatsApp, and can cancel up to one hour before their appointment.",
+      "On the other side, owners and barbers sign in to a dashboard that shows today's schedule at a glance: number of bookings, completed services, no-shows, and daily revenue. Walk-in customers can be added in one tap, so online and offline queues stay in one place. Each shop also gets its own booking link to share in its Instagram bio or WhatsApp auto-reply.",
+    ],
+    highlights: [
+      "Four-step online booking: choose a service, a barber, a time slot, then enter contact details, with a clear progress indicator.",
+      "\"Anyone available\" option that automatically finds the earliest open slot across all barbers.",
+      "Unique booking code for each reservation, with one-tap saving to WhatsApp and self-service cancellation up to 1 hour before the appointment.",
+      "Owner dashboard with daily stats (bookings, completed, no-shows, revenue) and quick walk-in entry.",
+      "Management pages for services and prices, barbers and their days off, customers, and shop settings.",
+      "Shareable per-shop booking link for Instagram and WhatsApp, plus separate sign-in for owners and barbers.",
+    ],
+    role: "Solo project",
+    stack: ["TypeScript", "JavaScript", "Next.js 15 (App Router)", "React 19", "Tailwind CSS 4", "SQL"],
+    year: 2026,
+    image: "/projects/giliran-login.png",
+    gallery: [
+      "/projects/giliran-layanan.png",
+      "/projects/giliran-kapster.png",
+      "/projects/giliran-data.png",
+      "/projects/giliran-konfirmasi.png",
+      "/projects/giliran-dashboard.png",
+    ],
+    liveUrl: "https://antrean-barbershop.vercel.app/",
+    sourceUrl: "https://github.com/JejeIrwan",
+    featured: true,
+  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured).slice(0, 2);
